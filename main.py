@@ -2,6 +2,25 @@ from PIL import Image
 import math
 from get_palette import get_palette
 from print_palette import print_palette
+from remap import remap
+from nes_palette import nes_palette
+
+image = Image.open("cat.jpg")
+data = image.load()
+
+basic_palette = [
+  (0,0,0),
+  (64, 64, 64), 
+  (128, 128, 128),
+  (192, 192, 192),
+  (255,255,255),
+  (255, 0, 0),
+  (0, 255, 0),
+  (0, 0, 255),
+  ]
+
+remap(image, data, nes_palette, "remap_cat.png")
+
 
 
 for filename in ("cat.jpg", "abstract.jpg"):
